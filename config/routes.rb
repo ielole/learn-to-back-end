@@ -2,7 +2,10 @@
 Rails.application.routes.draw do
   resources :examples, except: [:new, :edit]
   get '/goals/daily_achievements', to: 'daily_achievements#index'
+  get '/goals/daily_achievements/:id', to: 'daily_achievements#show'
   post '/goals/daily_achievements', to: 'daily_achievements#create'
+  patch '/goals/daily_achievements/:id', to: 'daily_achievements#update'
+  delete '/goals/daily_achievements/:id', to: 'daily_achievements#destroy'
   get '/goals' => 'goals#index'
   get '/goals/:id' => 'goals#show'
   post '/goals' => 'goals#create'

@@ -1,8 +1,14 @@
 class DailyAchievementsController < ApplicationController
+  before_action :set_daily_achievement, only: [:show, :update, :destroy]
+
   def index
     @daily_achievements = DailyAchievement.all
 
     render json: @daily_achievements
+  end
+
+  def show
+    render json: @daily_achievement
   end
 
   def create
@@ -13,6 +19,22 @@ class DailyAchievementsController < ApplicationController
     else
       render json: @daily_achievement.errors, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @daily_achievement = DailyAchievement.find(params[:id])
+
+    if @daily_achievement.update(daily_achievement_params)
+      head :no_content
+    else
+      render json: @daily_achievement.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @daily_achievement.destroy
+
+    head :no_content
   end
 
   def set_daily_achievement
