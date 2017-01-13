@@ -21,6 +21,14 @@ class GoalsController < ProtectedController
     end
   end
 
+  def update
+    if @goal.update(goal_params)
+      head :no_content
+    else
+      render json: @goal.errors, status: :unprocessable_entity
+    end
+  end
+
   def set_goal
     @goal = current_user.goals.find(params[:id])
   end
