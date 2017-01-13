@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   resources :examples, except: [:new, :edit]
-  get '/daily_achievements', to: 'daily_achievements#index'
+  get '/goals/daily_achievements', to: 'daily_achievements#index'
+  post '/goals/daily_achievements', to: 'daily_achievements#create'
   get '/goals' => 'goals#index'
   get '/goals/:id' => 'goals#show'
   post '/goals' => 'goals#create'
