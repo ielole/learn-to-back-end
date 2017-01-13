@@ -29,6 +29,12 @@ class GoalsController < ProtectedController
     end
   end
 
+  def destroy
+    @goal.destroy
+
+    head :no_content
+  end
+
   def set_goal
     @goal = current_user.goals.find(params[:id])
   end
