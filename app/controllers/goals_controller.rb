@@ -1,4 +1,4 @@
-class GoalsController < ApplicationController
+class GoalsController < ProtectedController
   before_action :set_goal, only: [:show, :update, :destroy]
 
   def index
@@ -11,8 +11,18 @@ class GoalsController < ApplicationController
     render json: Goal.find(params[:id])
   end
 
+  def create
+    @goal = current_user.goals.build(goal_params)
+
+    if @goal.save
+      render json: @goal, status: :created
+    else
+      render json: @goal.errors, status: :unprocessable_entity
+    end
+  end
+
   def set_goal
-    @goal = Goal.find(params[:id])
+    @goal = current_user.goals.find(params[:id])
   end
 
   def goal_params
