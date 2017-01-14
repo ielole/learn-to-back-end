@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   resources :examples, except: [:new, :edit]
   get 'goals/milestones', to: 'milestones#index'
+  post 'goals/milestones', to: 'milestones#create'
   get '/goals/daily_achievements', to: 'daily_achievements#index'
   get '/goals/daily_achievements/:id', to: 'daily_achievements#show'
   post '/goals/daily_achievements', to: 'daily_achievements#create'
