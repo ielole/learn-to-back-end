@@ -1,4 +1,4 @@
-class GoalsController < ProtectedController
+class GoalsController < OpenReadController
   before_action :set_goal, only: [:show, :update, :destroy]
 
   def index
