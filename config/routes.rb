@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'goals/milestones', to: 'milestones#index'
   get 'goals/milestones/:id', to: 'milestones#show'
   post 'goals/milestones', to: 'milestones#create'
+  patch 'goals/milestones/:id', to: 'milestones#update'
   get '/goals/daily_achievements', to: 'daily_achievements#index'
   get '/goals/daily_achievements/:id', to: 'daily_achievements#show'
   post '/goals/daily_achievements', to: 'daily_achievements#create'

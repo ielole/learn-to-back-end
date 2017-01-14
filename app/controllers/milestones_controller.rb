@@ -21,6 +21,16 @@ class MilestonesController < ApplicationController
     end
   end
 
+  def update
+    @milestone = Milestone.find(params[:id])
+
+    if @milestone.update(milestone_params)
+      head :no_content
+    else
+      render json: @milestone.errors, status: :unprocessable_entity
+    end
+  end
+
   def set_milestone
     @milestone = Milestone.find(params[:id])
   end
