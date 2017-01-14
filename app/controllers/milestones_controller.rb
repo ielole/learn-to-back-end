@@ -31,6 +31,12 @@ class MilestonesController < ApplicationController
     end
   end
 
+  def destroy
+    @milestone.destroy
+
+    head :no_content
+  end
+
   def set_milestone
     @milestone = Milestone.find(params[:id])
   end
