@@ -7,6 +7,10 @@ class MilestonesController < ApplicationController
     render json: @milestones
   end
 
+  def show
+    render json: @milestone
+  end
+
   def create
     @milestone = Milestone.new(milestone_params)
 
