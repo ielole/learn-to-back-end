@@ -1,8 +1,8 @@
-class GoalsController < OpenReadController
+class GoalsController < ProtectedController
   before_action :set_goal, only: [:show, :update, :destroy]
 
   def index
-    @goals = Goal.all
+    @goals = current_user.goals.all
 
     render json: @goals
   end

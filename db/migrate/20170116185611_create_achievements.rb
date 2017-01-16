@@ -1,6 +1,6 @@
-class CreateDailyAchievements < ActiveRecord::Migration
+class CreateAchievements < ActiveRecord::Migration
   def change
-    create_table :daily_achievements do |t|
+    create_table :achievements do |t|
       t.references :goal, index: true, foreign_key: true
       t.string :log
       t.string :image

@@ -1,9 +1,9 @@
 class GoalSerializer < ActiveModel::Serializer
-  attributes  :id, :start_date, :end_date, :user, :title, :daily_achievements,
+  attributes  :id, :start_date, :end_date, :user, :title, :achievements,
               :milestones
 
-  def daily_achievements
-    object.daily_achievements.pluck(:id)
+  def achievements
+    object.achievements.pluck(:id)
   end
 
   def milestones

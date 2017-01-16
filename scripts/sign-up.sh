@@ -1,5 +1,5 @@
-#!/bin/bash
-
+EMAIL="a@a.com"
+PASSWORD="123"
 API="http://localhost:4741"
 URL_PATH="/sign-up"
 curl "${API}${URL_PATH}" \
