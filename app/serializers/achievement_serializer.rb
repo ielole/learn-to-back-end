@@ -1,4 +1,4 @@
-class DailyAchievementSerializer < ActiveModel::Serializer
+class AchievementSerializer < ActiveModel::Serializer
   attributes :id, :log, :image, :goal
 
   def goal
