@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/goals' => 'goals#index'
   get '/goals/:id' => 'goals#show'
   post '/goals' => 'goals#create'
-  patch '/goals/:id', to: 'goals#update'
+  put '/goals/:id', to: 'goals#update'
   delete '/goals/:id', to: 'goals#destroy'
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
