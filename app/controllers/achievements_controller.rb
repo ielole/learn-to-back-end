@@ -12,9 +12,9 @@ class AchievementsController < ApplicationController
   end
 
   def create
-    @achievements = Achievement.new(achievement_params)
+    @achievement = Achievement.new(achievement_params)
 
-    if @achievements.save
+    if @achievement.save
       render json: @achievement, status: :created
     else
       render json: @achievement.errors, status: :unprocessable_entity
